@@ -1,92 +1,313 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Medical Gas Technologie – Fournisseur d’équipements médicaux</title>
-  <meta name="description" content="Medical Gas Technologie est spécialisée dans les équipements de gaz médicaux, installations hospitalières et solutions médicales.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medical Gas Technologie</title>
 
   <style>
-    body {
-      margin: 0;
+    :root{
+      --blue:#0b4fa3;
+      --orange:#f07a22;
+      --light:#cfeeff;
+      --text:#083a7a;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
       font-family: Arial, Helvetica, sans-serif;
-      background-color: #f4f6f8;
-      color: #003366;
+      color:var(--text);
+      background:#fff;
     }
-    header {
-      background: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+    a{color:inherit; text-decoration:none}
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 24px;
     }
-    header .overlay {
-      background: rgba(255,255,255,0.75);
-      padding: 60px;
+
+    /* ===== HEADER ===== */
+    header{
+      background:#fff;
+      border-bottom:1px solid #e9eef5;
     }
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:18px 0;
     }
-    h1 span {
-      color: #f36b21;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
     }
-    h2 {
-      font-weight: normal;
+    .brand img{
+      width:70px;
+      height:auto;
+      display:block;
     }
-    section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
+    nav ul{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:flex;
+      gap:22px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-      gap: 20px;
+    nav a{
+      font-size:15px;
+      color:#1f4f8a;
     }
-    .box {
-      background: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    nav a:hover{ text-decoration:underline; }
+
+    /* ===== HERO ===== */
+    .hero{
+      position:relative;
+      min-height:540px;
+      background: url("hero.jpg") center/cover no-repeat;
     }
-    footer {
-      background: #003366;
-      color: white;
-      text-align: center;
-      padding: 20px;
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px 0;
+    }
+    .hero-card{
+      width:min(1100px, 92vw);
+      background:rgba(207, 238, 255, 0.65);
+      padding:80px 24px;
+      text-align:center;
+    }
+    .hero-card h1{
+      margin:0 0 10px;
+      font-size:64px;
+      letter-spacing:1px;
+      font-weight:800;
+    }
+    .hero-card h1 .orange{color:var(--orange)}
+    .hero-card h1 .blue{color:var(--blue)}
+    .hero-card p{
+      margin:0;
+      font-size:22px;
+      font-weight:700;
+      color:var(--blue);
+    }
+
+    /* ===== SECTIONS ===== */
+    .section{
+      padding:70px 0;
+    }
+    .section.light{
+      background:var(--light);
+    }
+    .section-title{
+      text-align:center;
+      font-size:42px;
+      font-weight:800;
+      margin:0 0 28px;
+      letter-spacing:0.5px;
+    }
+    .section-title .orange{color:var(--orange)}
+    .section-title .blue{color:var(--blue)}
+
+    /* ===== VIDEO PLACEHOLDER ===== */
+    .video-wrap{display:flex; justify-content:center;}
+    .video-box{
+      width:min(820px, 92vw);
+      aspect-ratio: 16 / 9;
+      background:#a9cfe6;
+      position:relative;
+      overflow:hidden;
+      box-shadow:0 8px 18px rgba(0,0,0,0.08);
+    }
+    .video-box::before{
+      content:"";
+      position:absolute; inset:0;
+      background: url("video-placeholder.jpg") center/cover no-repeat;
+      filter: blur(2px);
+      transform: scale(1.05);
+      opacity:0.9;
+    }
+    .play-btn{
+      position:absolute;
+      left:50%; top:50%;
+      transform:translate(-50%,-50%);
+      width:76px; height:76px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.65);
+      display:grid;
+      place-items:center;
+      border:2px solid rgba(255,255,255,0.9);
+    }
+    .play-btn:after{
+      content:"";
+      width:0;height:0;
+      border-left:18px solid #4b6d86;
+      border-top:12px solid transparent;
+      border-bottom:12px solid transparent;
+      margin-left:4px;
+    }
+    .video-note{
+      text-align:center;
+      margin-top:16px;
+      color:#1b4a77;
+    }
+
+    /* ===== HORAIRES + CONTACT ===== */
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:60px;
+      align-items:center;
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 24px;
+    }
+    .big-logo{
+      display:flex;
+      justify-content:center;
+    }
+    .big-logo img{
+      width:min(420px, 80%);
+      height:auto;
+    }
+    .hours h3{
+      margin:0 0 18px;
+      font-size:34px;
+      font-weight:900;
+      color:var(--blue);
+      text-align:center;
+      letter-spacing:0.5px;
+    }
+    .hours p{
+      margin:0;
+      text-align:center;
+      font-size:18px;
+      color:#2a5b8f;
+    }
+    .contact-block{
+      text-align:center;
+      max-width:900px;
+      margin:40px auto 0;
+      padding:0 24px;
+    }
+    .contact-block h3{
+      margin:0 0 20px;
+      font-size:44px;
+      font-weight:900;
+      color:var(--blue);
+      letter-spacing:0.6px;
+    }
+    .contact-block .line{
+      margin:14px 0;
+      font-size:18px;
+      color:#2a5b8f;
+    }
+
+    /* ===== MAP ===== */
+    .map{
+      height:420px;
+      width:100%;
+      border:0;
+      display:block;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px){
+      .hero-card h1{font-size:42px}
+      .hero-card{padding:56px 18px}
+      .two-col{grid-template-columns: 1fr; gap:30px}
+      nav ul{justify-content:flex-start}
+      .topbar{flex-direction:column; align-items:flex-start}
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="overlay">
-    <h1><span>MEDICAL GAS</span> TECHNOLOGIE</h1>
-    <h2>Fournisseur d’équipements médicaux</h2>
-  </div>
-</header>
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">
+          <img src="logo-mgt.png" alt="MGT - Medical Gas Technologie" />
+        </div>
 
-<section>
-  <h2>Nos activités</h2>
-  <div class="services">
-    <div class="box">Systèmes de distribution de gaz médicaux</div>
-    <div class="box">Installation et maintenance hospitalière</div>
-    <div class="box">Équipements et accessoires médicaux</div>
-  </div>
-</section>
+        <nav>
+          <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#produits">Nos produits</a></li>
+            <li><a href="#references">Références</a></li>
+            <li><a href="#apropos">A propos de nous</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
 
-<section>
-  <h2>Contact</h2>
-  <p>Email : contact@medicalgastechnologie.com</p>
-  <p>WhatsApp : +213 …</p>
-</section>
+  <!-- HERO -->
+  <section class="hero" id="accueil">
+    <div class="hero-overlay">
+      <div class="hero-card">
+        <h1>
+          <span class="orange">MEDICAL GAS</span> <span class="blue">TECHNOLOGIE</span>
+        </h1>
+        <p>Fournisseur d’équipements médicaux</p>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  © 2026 Medical Gas Technologie – Tous droits réservés
-</footer>
+  <!-- VIDEO (placeholder) -->
+  <section class="section light" id="video">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="orange">Médical Gas Technologie</span> <span class="blue">en video</span>
+      </h2>
+
+      <div class="video-wrap">
+        <div class="video-box" aria-label="Emplacement vidéo">
+          <div class="play-btn" title="Vidéo à venir"></div>
+        </div>
+      </div>
+      <div class="video-note">Vidéo de présentation à venir.</div>
+    </div>
+  </section>
+
+  <!-- HORAIRES + CONTACT -->
+  <section class="section light" id="contact">
+    <div class="two-col">
+      <div class="big-logo">
+        <img src="logo-mgt.png" alt="Logo MGT" />
+      </div>
+
+      <div class="hours">
+        <h3>HORAIRES D'OUVERTURE</h3>
+        <p>Dim - Jeu : 08:00 - 16:30</p>
+      </div>
+    </div>
+
+    <div class="contact-block">
+      <h3>NOUS CONTACTER</h3>
+      <div class="line">14 rue azzaba courbet</div>
+      <div class="line">medical.gaztech@gmail.com</div>
+      <div class="line">+213 (0) 560 28 22 72</div>
+      <div class="line">+213 (0) 41 82 63 76</div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <iframe
+    class="map"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps?q=14%20rue%20azzaba%20courbet%20oran&output=embed">
+  </iframe>
 
 </body>
 </html>
