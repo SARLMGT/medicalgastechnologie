@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Medical Gas Technologie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -11,13 +14,17 @@
       --orange:#f07a22;
       --light:#cfeeff;
       --text:#083a7a;
+      --muted:#1d4c86;
+      --bg:#f4f7fb;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: "Times New Roman", Times, serif;
+      font-family: Times New Roman", Times, serif;
+      font-family: 'Open Sans', Times New Roman", Times, serif;
       color:var(--text);
       background:#fff;
+      line-height:1.6;
     }
     a{color:inherit; text-decoration:none}
     .container{
@@ -25,11 +32,62 @@
       margin:0 auto;
       padding:0 24px;
     }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 12px;
+      background:#e7f1ff;
+      border-radius:999px;
+      color:var(--muted);
+      font-weight:600;
+      font-size:13px;
+    }
+
+    /* ===== TOP INFO ===== */
+    .info-bar{
+      background:#f7fbff;
+      border-bottom:1px solid #e4edf6;
+      font-size:13px;
+      color:#1f4f8a;
+    }
+    .info-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      padding:10px 0;
+      flex-wrap:wrap;
+    }
+    .info-left{display:flex; gap:18px; flex-wrap:wrap;}
+    .info-left a{font-weight:700;}
+    .social{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .social a{
+      width:28px; height:28px;
+      border-radius:50%;
+      border:1px solid #d4e3f4;
+      display:grid;
+      place-items:center;
+      font-weight:700;
+      transition:background .2s, color .2s;
+    }
+    .social a:hover{
+      background:var(--blue);
+      color:#fff;
+      border-color:var(--blue);
+    }
 
     /* ===== HEADER ===== */
     header{
       background:#fff;
       border-bottom:1px solid #e9eef5;
+      position:sticky;
+      top:0;
+      z-index:10;
     }
     .topbar{
       display:flex;
@@ -37,6 +95,7 @@
       justify-content:space-between;
       gap:18px;
       padding:18px 0;
+      flex-wrap:wrap;
     }
     .brand{
       display:flex;
@@ -45,6 +104,7 @@
     }
     .brand img{
       width:70px;
+      width:90px;
       height:auto;
       display:block;
     }
@@ -60,6 +120,8 @@
     nav a{
       font-size:15px;
       color:#1f4f8a;
+      font-weight:700;
+      letter-spacing:0.2px;
     }
     nav a:hover{ text-decoration:underline; }
 
@@ -68,6 +130,8 @@
       position:relative;
       min-height:540px;
       background: url("hero.jpg") center/cover no-repeat;
+      min-height:560px;
+      background: linear-gradient(90deg, rgba(12,71,136,0.35), rgba(12,71,136,0.1)), url("hero.svg") center/cover no-repeat;
     }
     .hero-overlay{
       position:absolute;
@@ -81,26 +145,49 @@
       width:min(1100px, 92vw);
       background:rgba(207, 238, 255, 0.65);
       padding:80px 24px;
+      background:rgba(207, 238, 255, 0.72);
+      padding:84px 32px;
       text-align:center;
+      box-shadow:0 10px 32px rgba(0,0,0,0.08);
     }
     .hero-card h1{
       margin:0 0 10px;
+      margin:0 0 14px;
       font-size:64px;
       letter-spacing:1px;
       font-weight:800;
+      font-family:'Playfair Display', serif;
     }
     .hero-card h1 .orange{color:var(--orange)}
     .hero-card h1 .blue{color:var(--blue)}
     .hero-card p{
       margin:0;
+      margin:0 0 18px;
       font-size:22px;
       font-weight:700;
       color:var(--blue);
+    }
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:var(--blue);
+      color:#fff;
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:700;
+      box-shadow:0 6px 14px rgba(11,79,163,0.25);
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .cta:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 20px rgba(11,79,163,0.25);
     }
 
     /* ===== SECTIONS ===== */
     .section{
       padding:70px 0;
+      padding:80px 0;
     }
     .section.light{
       background:var(--light);
@@ -111,9 +198,41 @@
       font-weight:800;
       margin:0 0 28px;
       letter-spacing:0.5px;
+      font-family:'Playfair Display', serif;
     }
     .section-title .orange{color:var(--orange)}
     .section-title .blue{color:var(--blue)}
+    .intro{
+      text-align:center;
+      max-width:720px;
+      margin:0 auto 36px;
+      color:#1e4a80;
+    }
+
+    /* ===== PRODUCTS ===== */
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap:22px;
+    }
+    .card{
+      background:#fff;
+      border:1px solid #e3ecf5;
+      border-radius:10px;
+      padding:20px;
+      box-shadow:0 10px 24px rgba(11,79,163,0.06);
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:20px;
+      color:var(--blue);
+      font-family:'Playfair Display', serif;
+    }
+    .card p{
+      margin:0;
+      color:#3a5d8c;
+      font-size:15px;
+    }
 
     /* ===== VIDEO PLACEHOLDER ===== */
     .video-wrap{display:flex; justify-content:center;}
@@ -124,11 +243,13 @@
       position:relative;
       overflow:hidden;
       box-shadow:0 8px 18px rgba(0,0,0,0.08);
+      border-radius:8px;
     }
     .video-box::before{
       content:"";
       position:absolute; inset:0;
       background: url("video-placeholder.jpg") center/cover no-repeat;
+      background: url("hero.svg") center/cover no-repeat;
       filter: blur(2px);
       transform: scale(1.05);
       opacity:0.9;
@@ -143,6 +264,7 @@
       display:grid;
       place-items:center;
       border:2px solid rgba(255,255,255,0.9);
+      box-shadow:0 10px 20px rgba(0,0,0,0.12);
     }
     .play-btn:after{
       content:"";
@@ -156,6 +278,7 @@
       text-align:center;
       margin-top:16px;
       color:#1b4a77;
+      font-weight:600;
     }
 
     /* ===== HORAIRES + CONTACT ===== */
@@ -180,15 +303,17 @@
       margin:0 0 18px;
       font-size:34px;
       font-weight:900;
-      color: white;
+      color:var(--blue);
       text-align:center;
       letter-spacing:0.5px;
+      font-family:'Playfair Display', serif;
     }
     .hours p{
       margin:0;
       text-align:center;
       font-size:18px;
       color:#2a5b8f;
+      font-weight:700;
     }
     .contact-block{
       text-align:center;
@@ -202,11 +327,18 @@
       font-weight:900;
       color:var(--blue);
       letter-spacing:0.6px;
+      font-family:'Playfair Display', serif;
     }
     .contact-block .line{
       margin:14px 0;
       font-size:18px;
       color:#2a5b8f;
+    }
+    .contact-social{
+      margin-top:14px;
+      display:flex;
+      justify-content:center;
+      gap:10px;
     }
 
     /* ===== MAP ===== */
@@ -217,6 +349,15 @@
       display:block;
     }
 
+    /* ===== FOOTER ===== */
+    footer{
+      text-align:center;
+      padding:18px 12px 28px;
+      background:#f7fbff;
+      color:#2a5b8f;
+      font-size:13px;
+    }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px){
       .hero-card h1{font-size:42px}
@@ -224,11 +365,27 @@
       .two-col{grid-template-columns: 1fr; gap:30px}
       nav ul{justify-content:flex-start}
       .topbar{flex-direction:column; align-items:flex-start}
+      .info-inner{flex-direction:column; align-items:flex-start}
     }
   </style>
 </head>
 
 <body>
+
+  <!-- TOP INFO -->
+  <div class="info-bar">
+    <div class="container info-inner">
+      <div class="info-left">
+        <a href="mailto:medical.gaztech@gmail.com">medical.gaztech@gmail.com</a>
+        <a href="tel:+213560282272">+213 (0) 560 28 22 72</a>
+      </div>
+      <div class="social" aria-label="Réseaux sociaux">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Site web">⤴</a>
+      </div>
+    </div>
+  </div>
 
   <!-- HEADER -->
   <header>
@@ -236,6 +393,7 @@
       <div class="topbar">
         <div class="brand">
           <img src="logo-mgt.png" alt="MGT - Medical Gas Technologie" />
+          <div class="pill">Medical Gas Technologie</div>
         </div>
 
         <nav>
@@ -244,6 +402,7 @@
             <li><a href="#produits">Nos produits</a></li>
             <li><a href="#references">Références</a></li>
             <li><a href="#apropos">A propos de nous</a></li>
+            <li><a href="#apropos">À propos de nous</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -257,9 +416,63 @@
       <div class="hero-card">
         <h1>
           <span class="orange">MEDICAL GAS</span> <span class="blue">TECHNOLOGIE</span>
+          <span class="blue"><span class="orange">M</span>EDICAL <span class="orange">G</span>AS <span class="orange">T</span>ECHNOLOGIE</span>
         </h1>
         <p>Fournisseur d’équipements médicaux</p>
+        <a class="cta" href="#contact">Nous contacter</a>
       </div>
+    </div>
+  </section>
+
+  <!-- NOS PRODUITS -->
+  <section class="section" id="produits">
+    <div class="container">
+      <h2 class="section-title"><span class="blue">Nos</span> <span class="orange">produits</span></h2>
+      <p class="intro">Des solutions complètes pour l’oxygénation médicale, la distribution des fluides et la sécurité des patients.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Réseaux de gaz médicaux</h3>
+          <p>Conception, installation et maintenance de réseaux conformes aux normes internationales.</p>
+        </div>
+        <div class="card">
+          <h3>Equipements de chambres</h3>
+          <p>Rails, têtes murales, prises, alarmes et accessoires ergonomiques pour chaque service.</p>
+        </div>
+        <div class="card">
+          <h3>Solutions clé en main</h3>
+          <p>Audit, ingénierie, fourniture et formation afin de garantir la continuité des soins.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERENCES -->
+  <section class="section light" id="references">
+    <div class="container">
+      <h2 class="section-title"><span class="blue">Nos</span> <span class="orange">références</span></h2>
+      <p class="intro">Des cliniques privées aux structures publiques, MGT accompagne les établissements de santé en Algérie et à l’international.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Clinique El Yasmine</h3>
+          <p>Mise à niveau complète du réseau d’oxygène et intégration d’alarmes centralisées.</p>
+        </div>
+        <div class="card">
+          <h3>CHU régional</h3>
+          <p>Installation des unités tête de lit et formation des équipes techniques.</p>
+        </div>
+        <div class="card">
+          <h3>Hôpitaux privés</h3>
+          <p>Accompagnement clé en main pour l’ouverture de nouveaux blocs opératoires.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A PROPOS -->
+  <section class="section" id="apropos">
+    <div class="container">
+      <h2 class="section-title"><span class="blue">À propos</span> <span class="orange">de nous</span></h2>
+      <p class="intro">Medical Gas Technologie est un fournisseur d’équipements médicaux spécialisé dans les réseaux de gaz. Nous aidons les établissements à sécuriser leurs infrastructures grâce à des produits fiables et un accompagnement technique de proximité.</p>
     </div>
   </section>
 
@@ -281,6 +494,7 @@
 
   <!-- HORAIRES + CONTACT -->
   <section class="section light" id="contact">
+  <section class="section" id="contact">
     <div class="two-col">
       <div class="big-logo">
         <img src="logo-mgt.png" alt="Logo MGT" />
@@ -291,13 +505,27 @@
         <p>Dim - Jeu : 08:00 - 16:30</p>
       </div>
     </div>
+  </section>
 
+  <section class="section light">
+    
     <div class="contact-block">
+      
       <h3>NOUS CONTACTER</h3>
       <div class="line">14 rue azzaba courbet</div>
       <div class="line">medical.gaztech@gmail.com</div>
       <div class="line">+213 (0) 560 28 22 72</div>
       <div class="line">+213 (0) 41 82 63 76</div>
+      <div class="line"><a href="mailto:medical.gaztech@gmail.com">medical.gaztech@gmail.com</a></div>
+      <div class="line"><a href="tel:+213560282272">+213 (0) 560 28 22 72</a></div>
+      <div class="line"><a href="tel:+21341826376">+213 (0) 41 82 63 76</a></div>
+      <div class="contact-social">
+        <div class="social">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Site web">⤴</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -308,6 +536,10 @@
     referrerpolicy="no-referrer-when-downgrade"
     src="https://www.google.com/maps?q=14%20rue%20azzaba%20courbet%20oran&output=embed">
   </iframe>
+
+  <footer>
+    ©2021 MGT (Medical Gas Technologie). Créé par Tazi Nesrine.
+  </footer>
 
 </body>
 </html>
