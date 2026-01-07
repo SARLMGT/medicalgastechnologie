@@ -1,544 +1,475 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Medical Gas Technologie</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Medical Gas Technologie - Fournisseur d'équipements médicaux" />
 
   <style>
     :root{
-      --blue:#0b4fa3;
-      --orange:#f07a22;
-      --light:#cfeeff;
-      --text:#083a7a;
-      --muted:#1d4c86;
-      --bg:#f4f7fb;
+      --blue:#1f4f8e;
+      --blue2:#173f72;
+      --light:#cfeaf6;      /* fond bleu clair sections */
+      --light2:#d8f0f9;     /* fond bleu clair contact */
+      --orange:#f28c28;
+      --text:#0f2e57;
+      --line:#2b63b4;
+      --max:1180px;
     }
+
     *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
     body{
-      margin:0;
-      font-family: Times New Roman", Times, serif;
-      font-family: 'Open Sans', Times New Roman", Times, serif;
+      font-family: Georgia, "Times New Roman", serif;
       color:var(--text);
       background:#fff;
-      line-height:1.6;
     }
-    a{color:inherit; text-decoration:none}
-    .container{
-      max-width:1200px;
-      margin:0 auto;
-      padding:0 24px;
-    }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:6px 12px;
-      background:#e7f1ff;
-      border-radius:999px;
-      color:var(--muted);
-      font-weight:600;
-      font-size:13px;
-    }
+    a{color:inherit;text-decoration:none}
+    ul{margin:0;padding:0;list-style:none}
 
-    /* ===== TOP INFO ===== */
-    .info-bar{
-      background:#f7fbff;
-      border-bottom:1px solid #e4edf6;
-      font-size:13px;
-      color:#1f4f8a;
+    /* ====== TOP INFO BAR ====== */
+    .topbar{
+      background:#fff;
+      padding:14px 22px 10px;
+      border-bottom:2px solid var(--line);
     }
-    .info-inner{
+    .topbar .wrap{
+      max-width:var(--max);
+      margin:0 auto;
       display:flex;
-      justify-content:space-between;
       align-items:center;
-      gap:12px;
-      padding:10px 0;
+      justify-content:space-between;
+      gap:16px;
+      font-size:14px;
+      color:var(--blue);
+    }
+    .topbar .left{
+      display:flex;
+      align-items:center;
+      gap:28px;
       flex-wrap:wrap;
     }
-    .info-left{display:flex; gap:18px; flex-wrap:wrap;}
-    .info-left a{font-weight:700;}
-    .social{
+    .topbar .left a{
+      color:var(--blue);
+      font-weight:600;
+    }
+    .topbar .right{
       display:flex;
-      gap:10px;
       align-items:center;
+      gap:14px;
     }
-    .social a{
-      width:28px; height:28px;
-      border-radius:50%;
-      border:1px solid #d4e3f4;
-      display:grid;
-      place-items:center;
-      font-weight:700;
-      transition:background .2s, color .2s;
+    .icon{
+      width:18px;height:18px;display:inline-block;
+      fill:#111;
     }
-    .social a:hover{
-      background:var(--blue);
-      color:#fff;
-      border-color:var(--blue);
+    .icon.mono{fill:#111}
+    .icon.link{fill:#111}
+    .soc{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:22px;height:22px;
+      border-radius:999px;
     }
 
-    /* ===== HEADER ===== */
+    /* ====== MAIN HEADER ====== */
     header{
       background:#fff;
-      border-bottom:1px solid #e9eef5;
-      position:sticky;
-      top:0;
-      z-index:10;
+      padding:14px 22px 18px;
     }
-    .topbar{
+    header .wrap{
+      max-width:var(--max);
+      margin:0 auto;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:18px;
-      padding:18px 0;
-      flex-wrap:wrap;
     }
     .brand{
       display:flex;
       align-items:center;
       gap:14px;
+      min-width:290px;
     }
     .brand img{
-      width:70px;
-      width:90px;
-      height:auto;
+      width:72px;height:auto;
       display:block;
     }
+    .brand .title{
+      font-size:20px;
+      letter-spacing:.5px;
+      font-weight:700;
+      white-space:nowrap;
+    }
+    .brand .title .o{color:var(--orange)}
+    .brand .title .b{color:var(--blue)}
+
     nav ul{
-      margin:0;
-      padding:0;
-      list-style:none;
       display:flex;
-      gap:22px;
+      align-items:center;
+      gap:26px;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
     nav a{
-      font-size:15px;
-      color:#1f4f8a;
-      font-weight:700;
-      letter-spacing:0.2px;
+      color:var(--blue);
+      font-size:16px;
+      font-weight:500;
     }
-    nav a:hover{ text-decoration:underline; }
+    nav a:hover{color:var(--blue2);text-decoration:underline}
 
-    /* ===== HERO ===== */
+    /* ====== HERO ====== */
     .hero{
       position:relative;
       min-height:540px;
-      background: url("hero.jpg") center/cover no-repeat;
-      min-height:560px;
-      background: linear-gradient(90deg, rgba(12,71,136,0.35), rgba(12,71,136,0.1)), url("hero.svg") center/cover no-repeat;
-    }
-    .hero-overlay{
-      position:absolute;
-      inset:0;
+      background:url("hero.jpg") center/cover no-repeat;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:40px 0;
+      padding:54px 22px;
     }
-    .hero-card{
-      width:min(1100px, 92vw);
-      background:rgba(207, 238, 255, 0.65);
-      padding:80px 24px;
-      background:rgba(207, 238, 255, 0.72);
-      padding:84px 32px;
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(255,255,255,.18);
+    }
+    .hero .overlay{
+      position:relative;
+      width:min(1120px, 100%);
+      padding:78px 28px;
+      background:rgba(214, 234, 244, .55); /* rectangle semi-transparent */
+      border:1px solid rgba(255,255,255,.35);
+    }
+    .hero h1{
+      margin:0;
       text-align:center;
-      box-shadow:0 10px 32px rgba(0,0,0,0.08);
-    }
-    .hero-card h1{
-      margin:0 0 10px;
-      margin:0 0 14px;
-      font-size:64px;
+      font-size:62px;
+      line-height:1.05;
       letter-spacing:1px;
       font-weight:800;
-      font-family:'Playfair Display', serif;
+      color:var(--blue);
+      text-transform:uppercase;
     }
-    .hero-card h1 .orange{color:var(--orange)}
-    .hero-card h1 .blue{color:var(--blue)}
-    .hero-card p{
-      margin:0;
-      margin:0 0 18px;
-      font-size:22px;
+    .hero h1 .o{color:var(--orange)}
+    .hero .subtitle{
+      margin-top:18px;
+      text-align:center;
+      font-size:24px;
       font-weight:700;
       color:var(--blue);
     }
-    .cta{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      background:var(--blue);
-      color:#fff;
-      padding:12px 18px;
-      border-radius:999px;
-      font-weight:700;
-      box-shadow:0 6px 14px rgba(11,79,163,0.25);
-      transition:transform .15s ease, box-shadow .15s ease;
-    }
-    .cta:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 20px rgba(11,79,163,0.25);
-    }
 
-    /* ===== SECTIONS ===== */
+    /* ====== VIDEO SECTION ====== */
     .section{
-      padding:70px 0;
-      padding:80px 0;
+      padding:46px 22px;
     }
-    .section.light{
+    .video-section{
       background:var(--light);
     }
-    .section-title{
-      text-align:center;
-      font-size:42px;
-      font-weight:800;
-      margin:0 0 28px;
-      letter-spacing:0.5px;
-      font-family:'Playfair Display', serif;
-    }
-    .section-title .orange{color:var(--orange)}
-    .section-title .blue{color:var(--blue)}
-    .intro{
-      text-align:center;
-      max-width:720px;
-      margin:0 auto 36px;
-      color:#1e4a80;
-    }
-
-    /* ===== PRODUCTS ===== */
-    .cards{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    .video-wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
       gap:22px;
     }
-    .card{
-      background:#fff;
-      border:1px solid #e3ecf5;
-      border-radius:10px;
-      padding:20px;
-      box-shadow:0 10px 24px rgba(11,79,163,0.06);
-    }
-    .card h3{
-      margin:0 0 10px;
-      font-size:20px;
-      color:var(--blue);
-      font-family:'Playfair Display', serif;
-    }
-    .card p{
-      margin:0;
-      color:#3a5d8c;
-      font-size:15px;
-    }
-
-    /* ===== VIDEO PLACEHOLDER ===== */
-    .video-wrap{display:flex; justify-content:center;}
     .video-box{
-      width:min(820px, 92vw);
-      aspect-ratio: 16 / 9;
-      background:#a9cfe6;
+      width:min(760px, 100%);
+      aspect-ratio:16/9;
+      background:#b9c4cf;
+      border:10px solid rgba(255,255,255,.55);
+      box-shadow:0 0 0 1px rgba(0,0,0,.08);
       position:relative;
       overflow:hidden;
-      box-shadow:0 8px 18px rgba(0,0,0,0.08);
-      border-radius:8px;
     }
+    /* Remplace ce poster si tu veux */
     .video-box::before{
       content:"";
       position:absolute; inset:0;
-      background: url("video-placeholder.jpg") center/cover no-repeat;
-      background: url("hero.svg") center/cover no-repeat;
-      filter: blur(2px);
-      transform: scale(1.05);
-      opacity:0.9;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,.25), rgba(0,0,0,.12)),
+        linear-gradient(90deg, rgba(0,0,0,.10), rgba(0,0,0,.10));
+      mix-blend-mode:overlay;
+      pointer-events:none;
     }
-    .play-btn{
+    .play{
       position:absolute;
-      left:50%; top:50%;
-      transform:translate(-50%,-50%);
-      width:76px; height:76px;
-      border-radius:50%;
-      background:rgba(255,255,255,0.65);
+      inset:0;
       display:grid;
       place-items:center;
-      border:2px solid rgba(255,255,255,0.9);
-      box-shadow:0 10px 20px rgba(0,0,0,0.12);
+      pointer-events:none;
     }
-    .play-btn:after{
-      content:"";
-      width:0;height:0;
-      border-left:18px solid #4b6d86;
-      border-top:12px solid transparent;
-      border-bottom:12px solid transparent;
-      margin-left:4px;
-    }
-    .video-note{
-      text-align:center;
-      margin-top:16px;
-      color:#1b4a77;
-      font-weight:600;
-    }
-
-    /* ===== HORAIRES + CONTACT ===== */
-    .two-col{
+    .play .btn{
+      width:56px;height:56px;border-radius:999px;
+      border:2px solid rgba(255,255,255,.95);
+      background:rgba(255,255,255,.18);
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:60px;
-      align-items:center;
-      max-width:1100px;
-      margin:0 auto;
-      padding:0 24px;
+      place-items:center;
+      box-shadow:0 8px 18px rgba(0,0,0,.18);
     }
-    .big-logo{
+    .play svg{width:22px;height:22px;fill:#fff;margin-left:2px}
+
+    .video-title{
+      font-size:30px;
+      font-weight:800;
+      color:var(--blue);
+      letter-spacing:.5px;
+    }
+    .video-title .o{color:var(--orange)}
+
+    /* ====== HOURS + CONTACT ====== */
+    .hours-wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns: 1fr 1.2fr;
+      align-items:center;
+      gap:26px;
+      padding:18px 0;
+    }
+    .hours-wrap .logo-big{
       display:flex;
       justify-content:center;
+      align-items:center;
     }
-    .big-logo img{
-      width:min(420px, 80%);
+    .hours-wrap .logo-big img{
+      width:min(420px, 90%);
       height:auto;
+      display:block;
     }
-    .hours h3{
-      margin:0 0 18px;
+    .hours{
+      text-align:center;
+      color:var(--blue);
+    }
+    .hours h2{
+      margin:0 0 14px;
       font-size:34px;
       font-weight:900;
-      color:var(--blue);
-      text-align:center;
-      letter-spacing:0.5px;
-      font-family:'Playfair Display', serif;
+      letter-spacing:1px;
+      text-transform:uppercase;
     }
     .hours p{
       margin:0;
-      text-align:center;
-      font-size:18px;
-      color:#2a5b8f;
-      font-weight:700;
-    }
-    .contact-block{
-      text-align:center;
-      max-width:900px;
-      margin:40px auto 0;
-      padding:0 24px;
-    }
-    .contact-block h3{
-      margin:0 0 20px;
-      font-size:44px;
-      font-weight:900;
-      color:var(--blue);
-      letter-spacing:0.6px;
-      font-family:'Playfair Display', serif;
-    }
-    .contact-block .line{
-      margin:14px 0;
-      font-size:18px;
-      color:#2a5b8f;
-    }
-    .contact-social{
-      margin-top:14px;
-      display:flex;
-      justify-content:center;
-      gap:10px;
+      font-size:20px;
+      font-weight:600;
     }
 
-    /* ===== MAP ===== */
+    .contact-section{
+      background:var(--light2);
+      padding:58px 22px 26px;
+    }
+    .contact-wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      text-align:center;
+      color:var(--blue);
+    }
+    .contact-wrap h2{
+      margin:0 0 22px;
+      font-size:44px;
+      font-weight:900;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
+    .contact-wrap .line{
+      margin:10px 0;
+      font-size:20px;
+      font-weight:600;
+    }
+    .contact-wrap .line a{color:var(--blue)}
+    .contact-soc{
+      margin-top:18px;
+      display:flex;
+      justify-content:center;
+      gap:16px;
+    }
+    .contact-soc a{
+      width:34px;height:34px;border-radius:999px;
+      display:grid;place-items:center;
+      background:transparent;
+    }
+    .contact-soc svg{width:18px;height:18px;fill:#111}
+
+    /* ====== MAP ====== */
     .map{
-      height:420px;
+      background:#fff;
+      padding:0;
+    }
+    .map iframe{
       width:100%;
+      height:420px;
       border:0;
       display:block;
     }
 
-    /* ===== FOOTER ===== */
+    /* ====== FOOTER ====== */
     footer{
-      text-align:center;
-      padding:18px 12px 28px;
-      background:#f7fbff;
-      color:#2a5b8f;
+      padding:18px 22px 22px;
       font-size:13px;
+      color:#2d4f79;
+      text-align:center;
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 900px){
-      .hero-card h1{font-size:42px}
-      .hero-card{padding:56px 18px}
-      .two-col{grid-template-columns: 1fr; gap:30px}
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 980px){
+      header .wrap{flex-direction:column;align-items:flex-start}
       nav ul{justify-content:flex-start}
-      .topbar{flex-direction:column; align-items:flex-start}
-      .info-inner{flex-direction:column; align-items:flex-start}
+      .brand{min-width:auto}
+      .hero h1{font-size:44px}
+      .hero .subtitle{font-size:20px}
+      .hours-wrap{grid-template-columns:1fr}
+      .hours-wrap .logo-big{order:1}
+      .hours{order:2}
+    }
+    @media (max-width: 520px){
+      .hero .overlay{padding:52px 16px}
+      .hero h1{font-size:34px}
+      .contact-wrap h2{font-size:34px}
     }
   </style>
 </head>
 
 <body>
 
-  <!-- TOP INFO -->
-  <div class="info-bar">
-    <div class="container info-inner">
-      <div class="info-left">
+  <!-- TOP INFO BAR -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="left">
         <a href="mailto:medical.gaztech@gmail.com">medical.gaztech@gmail.com</a>
-        <a href="tel:+213560282272">+213 (0) 560 28 22 72</a>
+        <a href="tel:+2130560282272">+213 (0) 560 28 22 72</a>
       </div>
-      <div class="social" aria-label="Réseaux sociaux">
-        <a href="#" aria-label="Facebook">f</a>
-        <a href="#" aria-label="LinkedIn">in</a>
-        <a href="#" aria-label="Site web">⤴</a>
+
+      <div class="right" aria-label="Réseaux sociaux">
+        <!-- Facebook -->
+        <a class="soc" href="#" aria-label="Facebook">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.7-1.6H16.7V4.8c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5V11H7v3h2.7v8h3.8z"/>
+          </svg>
+        </a>
+        <!-- LinkedIn -->
+        <a class="soc" href="#" aria-label="LinkedIn">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.5 8.5H3.2V21h3.3V8.5zM4.85 3C3.8 3 3 3.8 3 4.85S3.8 6.7 4.85 6.7 6.7 5.9 6.7 4.85 5.9 3 4.85 3zM21 21h-3.3v-6.6c0-1.6 0-3.6-2.2-3.6s-2.5 1.7-2.5 3.5V21H9.7V8.5H13v1.7h.05c.46-.9 1.6-1.85 3.3-1.85 3.5 0 4.15 2.3 4.15 5.3V21z"/>
+          </svg>
+        </a>
+        <!-- Link / chain -->
+        <a class="soc" href="#" aria-label="Lien">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M10.6 13.4a1 1 0 0 1 0-1.4l3.6-3.6a3 3 0 1 1 4.2 4.2l-2 2a3 3 0 0 1-4.2 0 1 1 0 1 1 1.4-1.4 1 1 0 0 0 1.4 0l2-2a1 1 0 1 0-1.4-1.4l-3.6 3.6a3 3 0 0 1-4.2 0 3 3 0 0 1 0-4.2l2-2a3 3 0 0 1 4.2 0 1 1 0 1 1-1.4 1.4 1 1 0 0 0-1.4 0l-2 2a1 1 0 0 0 1.4 1.4z"/>
+          </svg>
+        </a>
       </div>
     </div>
   </div>
 
   <!-- HEADER -->
   <header>
-    <div class="container">
-      <div class="topbar">
-        <div class="brand">
-          <img src="logo-mgt.png" alt="MGT - Medical Gas Technologie" />
-          <div class="pill">Medical Gas Technologie</div>
+    <div class="wrap">
+      <div class="brand">
+        <img src="logo-mgt.png" alt="Logo MGT" />
+        <div class="title">
+          <span class="o">MEDICAL</span> <span class="o">GAS</span> <span class="b">TECHNOLOGIE</span>
         </div>
-
-        <nav>
-          <ul>
-            <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#produits">Nos produits</a></li>
-            <li><a href="#references">Références</a></li>
-            <li><a href="#apropos">A propos de nous</a></li>
-            <li><a href="#apropos">À propos de nous</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
       </div>
+
+      <nav aria-label="Menu principal">
+        <ul>
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#produits">Nos produits</a></li>
+          <li><a href="#references">Références</a></li>
+          <li><a href="#apropos">A propos de nous</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="hero" id="accueil">
-    <div class="hero-overlay">
-      <div class="hero-card">
-        <h1>
-          <span class="orange">MEDICAL GAS</span> <span class="blue">TECHNOLOGIE</span>
-          <span class="blue"><span class="orange">M</span>EDICAL <span class="orange">G</span>AS <span class="orange">T</span>ECHNOLOGIE</span>
-        </h1>
-        <p>Fournisseur d’équipements médicaux</p>
-        <a class="cta" href="#contact">Nous contacter</a>
+  <section id="accueil" class="hero">
+    <div class="overlay">
+      <h1>
+        <span class="o">MEDICAL</span> <span class="o">GAS</span> <span>TECHNOLOGIE</span>
+      </h1>
+      <div class="subtitle">Fournisseur d'équipements médicaux</div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="section video-section" id="produits">
+    <div class="video-wrap">
+      <div class="video-box" aria-label="Vidéo de présentation">
+        <!-- Si tu as un lien YouTube, remplace le contenu par un iframe YouTube -->
+        <!-- Exemple :
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/XXXX" title="MGT" frameborder="0" allowfullscreen></iframe>
+        -->
+        <div class="play" aria-hidden="true">
+          <div class="btn">
+            <svg viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-title">
+        <span class="o">M</span>édical <span class="o">G</span>as Technologie en video
       </div>
     </div>
   </section>
 
-  <!-- NOS PRODUITS -->
-  <section class="section" id="produits">
-    <div class="container">
-      <h2 class="section-title"><span class="blue">Nos</span> <span class="orange">produits</span></h2>
-      <p class="intro">Des solutions complètes pour l’oxygénation médicale, la distribution des fluides et la sécurité des patients.</p>
-      <div class="cards">
-        <div class="card">
-          <h3>Réseaux de gaz médicaux</h3>
-          <p>Conception, installation et maintenance de réseaux conformes aux normes internationales.</p>
-        </div>
-        <div class="card">
-          <h3>Equipements de chambres</h3>
-          <p>Rails, têtes murales, prises, alarmes et accessoires ergonomiques pour chaque service.</p>
-        </div>
-        <div class="card">
-          <h3>Solutions clé en main</h3>
-          <p>Audit, ingénierie, fourniture et formation afin de garantir la continuité des soins.</p>
-        </div>
+  <!-- HOURS -->
+  <section class="section" id="references">
+    <div class="hours-wrap">
+      <div class="logo-big">
+        <img src="logo-mgt.png" alt="Logo Medical Gas Technologie" />
       </div>
-    </div>
-  </section>
-
-  <!-- REFERENCES -->
-  <section class="section light" id="references">
-    <div class="container">
-      <h2 class="section-title"><span class="blue">Nos</span> <span class="orange">références</span></h2>
-      <p class="intro">Des cliniques privées aux structures publiques, MGT accompagne les établissements de santé en Algérie et à l’international.</p>
-      <div class="cards">
-        <div class="card">
-          <h3>Clinique El Yasmine</h3>
-          <p>Mise à niveau complète du réseau d’oxygène et intégration d’alarmes centralisées.</p>
-        </div>
-        <div class="card">
-          <h3>CHU régional</h3>
-          <p>Installation des unités tête de lit et formation des équipes techniques.</p>
-        </div>
-        <div class="card">
-          <h3>Hôpitaux privés</h3>
-          <p>Accompagnement clé en main pour l’ouverture de nouveaux blocs opératoires.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- A PROPOS -->
-  <section class="section" id="apropos">
-    <div class="container">
-      <h2 class="section-title"><span class="blue">À propos</span> <span class="orange">de nous</span></h2>
-      <p class="intro">Medical Gas Technologie est un fournisseur d’équipements médicaux spécialisé dans les réseaux de gaz. Nous aidons les établissements à sécuriser leurs infrastructures grâce à des produits fiables et un accompagnement technique de proximité.</p>
-    </div>
-  </section>
-
-  <!-- VIDEO (placeholder) -->
-  <section class="section light" id="video">
-    <div class="container">
-      <h2 class="section-title">
-        <span class="orange">Médical Gas Technologie</span> <span class="blue">en video</span>
-      </h2>
-
-      <div class="video-wrap">
-        <div class="video-box" aria-label="Emplacement vidéo">
-          <div class="play-btn" title="Vidéo à venir"></div>
-        </div>
-      </div>
-      <div class="video-note">Vidéo de présentation à venir.</div>
-    </div>
-  </section>
-
-  <!-- HORAIRES + CONTACT -->
-  <section class="section light" id="contact">
-  <section class="section" id="contact">
-    <div class="two-col">
-      <div class="big-logo">
-        <img src="logo-mgt.png" alt="Logo MGT" />
-      </div>
-
       <div class="hours">
-        <h3>HORAIRES D'OUVERTURE</h3>
+        <h2>HORAIRES D'OUVERTURE</h2>
         <p>Dim - Jeu : 08:00 - 16:30</p>
       </div>
     </div>
   </section>
 
-  <section class="section light">
-    
-    <div class="contact-block">
-      
-      <h3>NOUS CONTACTER</h3>
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="contact-wrap">
+      <h2>NOUS CONTACTER</h2>
+
       <div class="line">14 rue azzaba courbet</div>
-      <div class="line">medical.gaztech@gmail.com</div>
-      <div class="line">+213 (0) 560 28 22 72</div>
-      <div class="line">+213 (0) 41 82 63 76</div>
       <div class="line"><a href="mailto:medical.gaztech@gmail.com">medical.gaztech@gmail.com</a></div>
-      <div class="line"><a href="tel:+213560282272">+213 (0) 560 28 22 72</a></div>
-      <div class="line"><a href="tel:+21341826376">+213 (0) 41 82 63 76</a></div>
-      <div class="contact-social">
-        <div class="social">
-          <a href="#" aria-label="Facebook">f</a>
-          <a href="#" aria-label="LinkedIn">in</a>
-          <a href="#" aria-label="Site web">⤴</a>
-        </div>
+      <div class="line"><a href="tel:+2130560282272">+213 (0) 560 28 22 72</a></div>
+      <div class="line"><a href="tel:+213041826376">+213 (0) 41 82 63 76</a></div>
+
+      <div class="contact-soc" aria-label="Réseaux sociaux">
+        <a href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.7-1.6H16.7V4.8c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5V11H7v3h2.7v8h3.8z"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M6.5 8.5H3.2V21h3.3V8.5zM4.85 3C3.8 3 3 3.8 3 4.85S3.8 6.7 4.85 6.7 6.7 5.9 6.7 4.85 5.9 3 4.85 3zM21 21h-3.3v-6.6c0-1.6 0-3.6-2.2-3.6s-2.5 1.7-2.5 3.5V21H9.7V8.5H13v1.7h.05c.46-.9 1.6-1.85 3.3-1.85 3.5 0 4.15 2.3 4.15 5.3V21z"/></svg>
+        </a>
+        <a href="#" aria-label="Lien">
+          <svg viewBox="0 0 24 24"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l3.6-3.6a3 3 0 1 1 4.2 4.2l-2 2a3 3 0 0 1-4.2 0 1 1 0 1 1 1.4-1.4 1 1 0 0 0 1.4 0l2-2a1 1 0 1 0-1.4-1.4l-3.6 3.6a3 3 0 0 1-4.2 0 3 3 0 0 1 0-4.2l2-2a3 3 0 0 1 4.2 0 1 1 0 1 1-1.4 1.4 1 1 0 0 0-1.4 0l-2 2a1 1 0 0 0 1.4 1.4z"/></svg>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- MAP -->
-  <iframe
-    class="map"
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-    src="https://www.google.com/maps?q=14%20rue%20azzaba%20courbet%20oran&output=embed">
-  </iframe>
+  <section class="map" id="apropos">
+    <!-- Google Maps embed (tu peux remplacer par ton lien exact) -->
+    <iframe
+      title="Localisation - 14 rue azzaba courbet Oran"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps?q=14%20rue%20azzaba%20courbet%20oran&output=embed">
+    </iframe>
+  </section>
 
   <footer>
-    ©2021 MGT (Medical Gas Technologie). Créé par Tazi Nesrine.
+    ©2021 par MGT ( Medical Gas Technology ). Créé par Tazi Nesrine
   </footer>
 
 </body>
