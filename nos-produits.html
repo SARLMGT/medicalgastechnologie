@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nos produits | Medical Gas Technologie</title>
+  <meta name="description" content="Nos produits - Medical Gas Technologie" />
+
+  <style>
+    :root{
+      --blue:#1f4f8e;
+      --blue2:#173f72;
+      --light:#d8f0f9;          /* bleu clair des blocs */
+      --orange:#f28c28;
+      --text:#0f2e57;
+      --line:#2b63b4;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: Georgia, "Times New Roman", serif;
+      color:var(--text);
+      background:#fff;
+      font-weight:400;
+    }
+    a{color:inherit;text-decoration:none}
+    ul{margin:0;padding:0;list-style:none}
+
+    /* Titres en gras seulement */
+    h1,h2,h3{font-weight:800}
+    p{font-weight:400}
+
+    .accent{color:var(--orange)}
+
+    /* ===== TOP BAR ===== */
+    .topbar{
+      background:#fff;
+      padding:14px 22px 10px;
+      border-bottom:2px solid var(--line);
+    }
+    .topbar .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      font-size:14px;
+      color:var(--blue);
+    }
+    .topbar .left{
+      display:flex;
+      align-items:center;
+      gap:28px;
+      flex-wrap:wrap;
+    }
+    .topbar .left a{font-weight:400}
+    .topbar .right{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .icon{width:18px;height:18px;display:inline-block;fill:#111}
+    .soc{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:26px;height:26px;
+      border-radius:999px;
+    }
+    .soc svg{transition: transform .2s ease, fill .2s ease;}
+    .soc:hover svg{fill:var(--blue);transform:scale(1.1);}
+
+    /* ===== HEADER ===== */
+    header{
+      background:#fff;
+      padding:14px 22px 18px;
+    }
+    header .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:290px;
+    }
+    .brand img{width:72px;height:auto;display:block}
+    .brand .title{
+      font-size:20px;
+      letter-spacing:.5px;
+      font-weight:800;
+      white-space:nowrap;
+      color:var(--blue);
+      text-transform:uppercase;
+    }
+
+    nav ul{
+      display:flex;
+      align-items:center;
+      gap:26px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    nav a{
+      color:var(--blue);
+      font-size:16px;
+      font-weight:400;
+    }
+    nav a:hover{color:var(--blue2);text-decoration:underline}
+    .active{ text-decoration: underline; }
+
+    /* ===== INTRO (logo + texte) ===== */
+    .intro{
+      padding:28px 22px 10px;
+    }
+    .intro .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns: 260px 1fr;
+      gap:32px;
+      align-items:center;
+    }
+    .intro .big-logo{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .intro .big-logo img{
+      width:220px;
+      height:auto;
+      display:block;
+    }
+    .intro p{
+      margin:0;
+      text-align:center;
+      color:var(--blue);
+      font-size:17px;
+      line-height:1.9;
+    }
+
+    /* ===== GRID PRODUITS ===== */
+    .products{
+      padding:12px 22px 60px;
+    }
+    .products .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+    }
+
+    /* Grille 3 colonnes comme tes captures */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:34px 34px;
+      align-items:start;
+    }
+
+    /* Carte produit: image puis bloc bleu avec titre */
+    .card{
+      display:block;
+    }
+    .imgbox{
+      width:100%;
+      height:290px;              /* hauteur visuelle proche Wix */
+      background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+    .imgbox img{
+      max-width:100%;
+      max-height:100%;
+      object-fit:contain;
+      display:block;
+    }
+    .titlebox{
+      background:var(--light);
+      min-height:190px;          /* grand rectangle bleu */
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:18px 14px;
+    }
+    .titlebox h3{
+      margin:0;
+      color:var(--blue);
+      font-size:26px;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+      line-height:1.25;
+    }
+
+    /* Petit effet pro au hover */
+    .card:hover .titlebox{ filter:brightness(0.99); }
+    .card:hover .imgbox{ filter:brightness(0.99); }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      header .wrap{flex-direction:column;align-items:flex-start}
+      nav ul{justify-content:flex-start}
+      .intro .wrap{grid-template-columns:1fr}
+      .intro p{text-align:center}
+      .grid{grid-template-columns: repeat(2, 1fr);}
+    }
+    @media (max-width: 560px){
+      .grid{grid-template-columns: 1fr;}
+      .imgbox{height:260px}
+      .titlebox{min-height:160px}
+      .titlebox h3{font-size:22px}
+    }
+
+    footer{
+      padding:18px 22px 22px;
+      font-size:13px;
+      color:#2d4f79;
+      text-align:center;
+      font-weight:400;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP INFO BAR -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="left">
+        <a href="mailto:medical.gaztech@gmail.com">medical.gaztech@gmail.com</a>
+        <a href="tel:+2130560282272">+213 (0) 560 28 22 72</a>
+      </div>
+
+      <div class="right" aria-label="Réseaux sociaux">
+        <a class="soc"
+           href="https://www.facebook.com/people/SARL-MGT/100051558593454/"
+           target="_blank" rel="noopener" aria-label="Facebook">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.7-1.6H16.7V4.8c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5V11H7v3h2.7v8h3.8z"/>
+          </svg>
+        </a>
+
+        <a class="soc"
+           href="https://www.linkedin.com/in/medical-gas-technologie-sarl-261363214/?locale=fr_FR"
+           target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.5 8.5H3.2V21h3.3V8.5zM4.85 3C3.8 3 3 3.8 3 4.85S3.8 6.7 4.85 6.7 6.7 5.9 6.7 4.85 5.9 3 4.85 3zM21 21h-3.3v-6.6c0-1.6 0-3.6-2.2-3.6s-2.5 1.7-2.5 3.5V21H9.7V8.5H13v1.7h.05c.46-.9 1.6-1.85 3.3-1.85 3.5 0 4.15 2.3 4.15 5.3V21z"/>
+          </svg>
+        </a>
+
+        <a class="soc"
+           href="mailto:medical.gaztech@gmail.com"
+           aria-label="Email">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="wrap">
+      <div class="brand">
+        <img src="logo-mgt.png" alt="Logo MGT" />
+        <div class="title">
+          <span class="accent">M</span>EDICAL <span class="accent">G</span>AS <span class="accent">T</span>ECHNOLOGIE
+        </div>
+      </div>
+
+      <nav aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a class="active" href="nos-produits.html">Nos produits</a></li>
+          <li><a href="index.html#references">Références</a></li>
+          <li><a href="index.html#apropos">A propos de nous</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="wrap">
+      <div class="big-logo">
+        <img src="logo-mgt.png" alt="Medical Gas Technologie" />
+      </div>
+
+      <p>
+        Médical Gas Technologie met un point d'honneur à concevoir et fournir des produits et équipements de haute qualité,
+        parfaitement adaptés aux besoins de ses clients. Ils s'engagent à respecter scrupuleusement les normes en vigueur
+        pour répondre pleinement à leurs attentes.
+      </p>
+    </div>
+  </section>
+
+  <!-- PRODUITS GRID -->
+  <section class="products">
+    <div class="wrap">
+      <div class="grid">
+
+        <!-- 1 -->
+        <a class="card" href="produit-prise-tous-gaz.html">
+          <div class="imgbox">
+            <img src="produits/prise-tous-gaz.png" alt="Prises tous gaz">
+          </div>
+          <div class="titlebox">
+            <h3>PRISES TOUS GAZ</h3>
+          </div>
+        </a>
+
+        <!-- 2 -->
+        <a class="card" href="produit-reservoir-oxygene.html">
+          <div class="imgbox">
+            <img src="produits/reservoir-oxygene.png" alt="Réservoir d'oxygène">
+          </div>
+          <div class="titlebox">
+            <h3>RÉSERVOIR<br>D'OXYGÈNE</h3>
+          </div>
+        </a>
+
+        <!-- 3 -->
+        <a class="card" href="produit-applique-tete-de-lit.html">
+          <div class="imgbox">
+            <img src="produits/applique-tete-de-lit.png" alt="Applique tête de lit">
+          </div>
+          <div class="titlebox">
+            <h3>APPLIQUE TETE DE<br>LIT</h3>
+          </div>
+        </a>
+
+        <!-- 4 -->
+        <a class="card" href="produit-boitiers-alarme.html">
+          <div class="imgbox">
+            <img src="produits/boitiers-alarme.png" alt="Boîtiers d'alarme">
+          </div>
+          <div class="titlebox">
+            <h3>BOITIERS D'ALARME POUR<br>SURVEILLANCE DES GAZ<br>MÉDICAUX</h3>
+          </div>
+        </a>
+
+        <!-- 5 -->
+        <a class="card" href="produit-bras-plafonniers.html">
+          <div class="imgbox">
+            <img src="produits/bras-plafonniers.png" alt="Bras plafonniers">
+          </div>
+          <div class="titlebox">
+            <h3>BRAS<br>PLAFONNIERS</h3>
+          </div>
+        </a>
+
+        <!-- 6 -->
+        <a class="card" href="produit-centrale-air-comprime.html">
+          <div class="imgbox">
+            <img src="produits/centrale-air-comprime.png" alt="Centrale d'air comprimé">
+          </div>
+          <div class="titlebox">
+            <h3>CENTRALE D'AIR<br>COMPRIMÉ</h3>
+          </div>
+        </a>
+
+        <!-- 7 -->
+        <a class="card" href="produit-centrales-bouteilles.html">
+          <div class="imgbox">
+            <img src="produits/centrales-bouteilles.png" alt="Centrales à bouteilles">
+          </div>
+          <div class="titlebox">
+            <h3>CENTRALES À<br>BOUTEILLES</h3>
+          </div>
+        </a>
+
+        <!-- 8 -->
+        <a class="card" href="produit-ensemble-aspiration.html">
+          <div class="imgbox">
+            <img src="produits/ensemble-aspiration.png" alt="Ensemble aspiration">
+          </div>
+          <div class="titlebox">
+            <h3>ENSEMBLE<br>ASPIRATION</h3>
+          </div>
+        </a>
+
+        <!-- 9 -->
+        <a class="card" href="produit-vannes-sectionnements.html">
+          <div class="imgbox">
+            <img src="produits/vannes-sectionnements.png" alt="Vannes de sectionnements">
+          </div>
+          <div class="titlebox">
+            <h3>VANNES DE<br>SECTIONNEMENTS</h3>
+          </div>
+        </a>
+
+        <!-- 10 -->
+        <a class="card" href="produit-regulateur-pression.html">
+          <div class="imgbox">
+            <img src="produits/regulateur-pression.png" alt="Régulateur de pression">
+          </div>
+          <div class="titlebox">
+            <h3>RÉGULATEUR DE<br>PRESSION</h3>
+          </div>
+        </a>
+
+        <!-- 11 -->
+        <a class="card" href="produit-ensemble-oxygenotherapie.html">
+          <div class="imgbox">
+            <img src="produits/ensemble-oxygenotherapie.png" alt="Ensemble oxygénothérapie">
+          </div>
+          <div class="titlebox">
+            <h3>ENSEMBLE<br>OXYGÉNOTHÉRAPIE</h3>
+          </div>
+        </a>
+
+        <!-- 12 (optionnel : carte vide si tu veux compléter plus tard) -->
+        <a class="card" href="produit-a-ajouter.html" style="visibility:hidden">
+          <div class="imgbox"></div>
+          <div class="titlebox"><h3>—</h3></div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    ©2021 par MGT ( Medical Gas Technology ). Créé par Tazi Nesrine
+  </footer>
+
+</body>
+</html>
