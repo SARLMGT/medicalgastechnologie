@@ -4,13 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nos produits | Medical Gas Technologie</title>
-  <meta name="description" content="Nos produits - Medical Gas Technologie" />
 
   <style>
     :root{
       --blue:#1f4f8e;
       --blue2:#173f72;
-      --light:#d8f0f9;          /* bleu clair des blocs */
+      --light:#d8f0f9;
       --orange:#f28c28;
       --text:#0f2e57;
       --line:#2b63b4;
@@ -27,11 +26,8 @@
     }
     a{color:inherit;text-decoration:none}
     ul{margin:0;padding:0;list-style:none}
-
-    /* Titres en gras seulement */
     h1,h2,h3{font-weight:800}
     p{font-weight:400}
-
     .accent{color:var(--orange)}
 
     /* ===== TOP BAR ===== */
@@ -116,76 +112,54 @@
     nav a:hover{color:var(--blue2);text-decoration:underline}
     .active{ text-decoration: underline; }
 
-    /* ===== NEW BEAUTIFUL TOP (logo + text) ===== */
-    .hero-top{
-      padding:34px 22px 24px;
+    /* ===== NEW PAGE HEADER (BEAU / CLEAN) ===== */
+    .page-head{
+      padding:34px 22px 18px;
     }
-    .hero-top .wrap{
-      max-width:var(--max);
+    .page-head .wrap{
+      max-width:980px;
       margin:0 auto;
-      display:grid;
-      grid-template-columns: 360px 1fr;
-      gap:34px;
-      align-items:center;
+      text-align:center;
     }
-    .hero-card{
-      display:flex;
-      align-items:center;
-      gap:18px;
-    }
-    .hero-logo{
-      width:230px;
-      height:auto;
-      display:block;
-    }
-    .hero-small{
-      font-size:20px;
+    .page-head h1{
+      margin:0;
+      font-size:34px;
       color:var(--blue);
-      margin-top:10px;
-      text-align:left;
-    }
-
-    /* bloc texte pro */
-    .hero-text{
-      background:rgba(216,240,249,.65);
-      border:1px solid rgba(31,79,142,.15);
-      padding:22px 26px;
-    }
-    .hero-text h1{
-      margin:0 0 10px;
-      font-size:28px;
-      letter-spacing:.7px;
-      color:var(--blue);
+      letter-spacing:1px;
       text-transform:uppercase;
     }
-    .hero-text p{
-      margin:0;
-      color:var(--blue);
+    .page-head .line{
+      width:120px;
+      height:3px;
+      background:var(--line);
+      margin:14px auto 16px;
+    }
+    .page-head p{
+      margin:0 auto;
+      max-width:820px;
       font-size:17px;
-      line-height:1.85;
-      text-align:center;
+      line-height:1.9;
+      color:var(--blue);
     }
 
     /* ===== GRID PRODUITS ===== */
     .products{
-      padding:8px 22px 60px;
+      padding:22px 22px 60px;
     }
     .products .wrap{
       max-width:var(--max);
       margin:0 auto;
     }
-
     .grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap:34px;
       align-items:start;
     }
-
     .card{display:block}
     .imgbox{
       width:100%;
-      height:300px; /* un peu plus haut comme Wix */
+      height:300px;
       background:#fff;
       display:flex;
       align-items:center;
@@ -198,27 +172,24 @@
       object-fit:contain;
       display:block;
     }
-
     .titlebox{
       background:var(--light);
-      min-height:170px; /* un peu moins haut */
+      min-height:165px;
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
       padding:18px 16px;
     }
-
-    /* ✅ TITRES MOINS GRANDS */
+    /* ✅ titres un peu plus petits */
     .titlebox h3{
       margin:0;
       color:var(--blue);
-      font-size:22px;     /* avant 26 */
+      font-size:21px;
       letter-spacing:.5px;
       text-transform:uppercase;
       line-height:1.25;
     }
-
     .card:hover .titlebox{ filter:brightness(0.99); }
     .card:hover .imgbox{ filter:brightness(0.99); }
 
@@ -226,10 +197,6 @@
     @media (max-width: 980px){
       header .wrap{flex-direction:column;align-items:flex-start}
       nav ul{justify-content:flex-start}
-      .hero-top .wrap{grid-template-columns:1fr}
-      .hero-card{justify-content:center;flex-direction:column}
-      .hero-small{text-align:center}
-      .hero-text h1{text-align:center}
       .grid{grid-template-columns: repeat(2, 1fr);}
     }
     @media (max-width: 560px){
@@ -237,6 +204,7 @@
       .imgbox{height:260px}
       .titlebox{min-height:150px}
       .titlebox h3{font-size:20px}
+      .page-head h1{font-size:30px}
     }
 
     footer{
@@ -309,28 +277,20 @@
     </div>
   </header>
 
-  <!-- ✅ HAUT PLUS BEAU -->
-  <section class="hero-top">
+  <!-- ✅ PAGE HEADER CLEAN (sans gros logo) -->
+  <section class="page-head">
     <div class="wrap">
-      <div class="hero-card">
-        <div>
-          <img class="hero-logo" src="logo-mgt.png" alt="Medical Gas Technologie" />
-          <div class="hero-small">Medical Gas Technologies</div>
-        </div>
-      </div>
-
-      <div class="hero-text">
-        <h1>Nos produits</h1>
-        <p>
-          Médical Gas Technologie met un point d'honneur à concevoir et fournir des produits et équipements de haute qualité,
-          parfaitement adaptés aux besoins de ses clients. Ils s'engagent à respecter scrupuleusement les normes en vigueur
-          pour répondre pleinement à leurs attentes.
-        </p>
-      </div>
+      <h1>NOS PRODUITS</h1>
+      <div class="line"></div>
+      <p>
+        Médical Gas Technologie met un point d'honneur à concevoir et fournir des produits et équipements de haute qualité,
+        parfaitement adaptés aux besoins de ses clients. Ils s'engagent à respecter scrupuleusement les normes en vigueur
+        pour répondre pleinement à leurs attentes.
+      </p>
     </div>
   </section>
 
-  <!-- PRODUITS GRID -->
+  <!-- PRODUITS -->
   <section class="products">
     <div class="wrap">
       <div class="grid">
