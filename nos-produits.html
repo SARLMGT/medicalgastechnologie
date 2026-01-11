@@ -56,7 +56,6 @@
       gap:28px;
       flex-wrap:wrap;
     }
-    .topbar .left a{font-weight:400}
     .topbar .right{
       display:flex;
       align-items:center;
@@ -117,60 +116,76 @@
     nav a:hover{color:var(--blue2);text-decoration:underline}
     .active{ text-decoration: underline; }
 
-    /* ===== INTRO (logo + texte) ===== */
-    .intro{
-      padding:28px 22px 10px;
+    /* ===== NEW BEAUTIFUL TOP (logo + text) ===== */
+    .hero-top{
+      padding:34px 22px 24px;
     }
-    .intro .wrap{
+    .hero-top .wrap{
       max-width:var(--max);
       margin:0 auto;
       display:grid;
-      grid-template-columns: 260px 1fr;
-      gap:32px;
+      grid-template-columns: 360px 1fr;
+      gap:34px;
       align-items:center;
     }
-    .intro .big-logo{
+    .hero-card{
       display:flex;
       align-items:center;
-      justify-content:center;
+      gap:18px;
     }
-    .intro .big-logo img{
-      width:220px;
+    .hero-logo{
+      width:230px;
       height:auto;
       display:block;
     }
-    .intro p{
+    .hero-small{
+      font-size:20px;
+      color:var(--blue);
+      margin-top:10px;
+      text-align:left;
+    }
+
+    /* bloc texte pro */
+    .hero-text{
+      background:rgba(216,240,249,.65);
+      border:1px solid rgba(31,79,142,.15);
+      padding:22px 26px;
+    }
+    .hero-text h1{
+      margin:0 0 10px;
+      font-size:28px;
+      letter-spacing:.7px;
+      color:var(--blue);
+      text-transform:uppercase;
+    }
+    .hero-text p{
       margin:0;
-      text-align:center;
       color:var(--blue);
       font-size:17px;
-      line-height:1.9;
+      line-height:1.85;
+      text-align:center;
     }
 
     /* ===== GRID PRODUITS ===== */
     .products{
-      padding:12px 22px 60px;
+      padding:8px 22px 60px;
     }
     .products .wrap{
       max-width:var(--max);
       margin:0 auto;
     }
 
-    /* Grille 3 colonnes comme tes captures */
     .grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap:34px 34px;
+      gap:34px;
       align-items:start;
     }
 
-    /* Carte produit: image puis bloc bleu avec titre */
-    .card{
-      display:block;
-    }
+    .card{display:block}
     .imgbox{
       width:100%;
-      height:290px;              /* hauteur visuelle proche Wix */
+      height:300px; /* un peu plus haut comme Wix */
       background:#fff;
       display:flex;
       align-items:center;
@@ -183,25 +198,27 @@
       object-fit:contain;
       display:block;
     }
+
     .titlebox{
       background:var(--light);
-      min-height:190px;          /* grand rectangle bleu */
+      min-height:170px; /* un peu moins haut */
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
-      padding:18px 14px;
+      padding:18px 16px;
     }
+
+    /* ✅ TITRES MOINS GRANDS */
     .titlebox h3{
       margin:0;
       color:var(--blue);
-      font-size:26px;
-      letter-spacing:.6px;
+      font-size:22px;     /* avant 26 */
+      letter-spacing:.5px;
       text-transform:uppercase;
       line-height:1.25;
     }
 
-    /* Petit effet pro au hover */
     .card:hover .titlebox{ filter:brightness(0.99); }
     .card:hover .imgbox{ filter:brightness(0.99); }
 
@@ -209,15 +226,17 @@
     @media (max-width: 980px){
       header .wrap{flex-direction:column;align-items:flex-start}
       nav ul{justify-content:flex-start}
-      .intro .wrap{grid-template-columns:1fr}
-      .intro p{text-align:center}
+      .hero-top .wrap{grid-template-columns:1fr}
+      .hero-card{justify-content:center;flex-direction:column}
+      .hero-small{text-align:center}
+      .hero-text h1{text-align:center}
       .grid{grid-template-columns: repeat(2, 1fr);}
     }
     @media (max-width: 560px){
       .grid{grid-template-columns: 1fr;}
       .imgbox{height:260px}
-      .titlebox{min-height:160px}
-      .titlebox h3{font-size:22px}
+      .titlebox{min-height:150px}
+      .titlebox h3{font-size:20px}
     }
 
     footer{
@@ -290,18 +309,24 @@
     </div>
   </header>
 
-  <!-- INTRO -->
-  <section class="intro">
+  <!-- ✅ HAUT PLUS BEAU -->
+  <section class="hero-top">
     <div class="wrap">
-      <div class="big-logo">
-        <img src="logo-mgt.png" alt="Medical Gas Technologie" />
+      <div class="hero-card">
+        <div>
+          <img class="hero-logo" src="logo-mgt.png" alt="Medical Gas Technologie" />
+          <div class="hero-small">Medical Gas Technologies</div>
+        </div>
       </div>
 
-      <p>
-        Médical Gas Technologie met un point d'honneur à concevoir et fournir des produits et équipements de haute qualité,
-        parfaitement adaptés aux besoins de ses clients. Ils s'engagent à respecter scrupuleusement les normes en vigueur
-        pour répondre pleinement à leurs attentes.
-      </p>
+      <div class="hero-text">
+        <h1>Nos produits</h1>
+        <p>
+          Médical Gas Technologie met un point d'honneur à concevoir et fournir des produits et équipements de haute qualité,
+          parfaitement adaptés aux besoins de ses clients. Ils s'engagent à respecter scrupuleusement les normes en vigueur
+          pour répondre pleinement à leurs attentes.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -310,7 +335,6 @@
     <div class="wrap">
       <div class="grid">
 
-        <!-- 1 -->
         <a class="card" href="produit-prise-tous-gaz.html">
           <div class="imgbox">
             <img src="produits/prise-tous-gaz.png" alt="Prises tous gaz">
@@ -320,7 +344,6 @@
           </div>
         </a>
 
-        <!-- 2 -->
         <a class="card" href="produit-reservoir-oxygene.html">
           <div class="imgbox">
             <img src="produits/reservoir-oxygene.png" alt="Réservoir d'oxygène">
@@ -330,7 +353,6 @@
           </div>
         </a>
 
-        <!-- 3 -->
         <a class="card" href="produit-applique-tete-de-lit.html">
           <div class="imgbox">
             <img src="produits/applique-tete-de-lit.png" alt="Applique tête de lit">
@@ -340,7 +362,6 @@
           </div>
         </a>
 
-        <!-- 4 -->
         <a class="card" href="produit-boitiers-alarme.html">
           <div class="imgbox">
             <img src="produits/boitiers-alarme.png" alt="Boîtiers d'alarme">
@@ -350,7 +371,6 @@
           </div>
         </a>
 
-        <!-- 5 -->
         <a class="card" href="produit-bras-plafonniers.html">
           <div class="imgbox">
             <img src="produits/bras-plafonniers.png" alt="Bras plafonniers">
@@ -360,7 +380,6 @@
           </div>
         </a>
 
-        <!-- 6 -->
         <a class="card" href="produit-centrale-air-comprime.html">
           <div class="imgbox">
             <img src="produits/centrale-air-comprime.png" alt="Centrale d'air comprimé">
@@ -370,7 +389,6 @@
           </div>
         </a>
 
-        <!-- 7 -->
         <a class="card" href="produit-centrales-bouteilles.html">
           <div class="imgbox">
             <img src="produits/centrales-bouteilles.png" alt="Centrales à bouteilles">
@@ -380,7 +398,6 @@
           </div>
         </a>
 
-        <!-- 8 -->
         <a class="card" href="produit-ensemble-aspiration.html">
           <div class="imgbox">
             <img src="produits/ensemble-aspiration.png" alt="Ensemble aspiration">
@@ -390,7 +407,6 @@
           </div>
         </a>
 
-        <!-- 9 -->
         <a class="card" href="produit-vannes-sectionnements.html">
           <div class="imgbox">
             <img src="produits/vannes-sectionnements.png" alt="Vannes de sectionnements">
@@ -400,7 +416,6 @@
           </div>
         </a>
 
-        <!-- 10 -->
         <a class="card" href="produit-regulateur-pression.html">
           <div class="imgbox">
             <img src="produits/regulateur-pression.png" alt="Régulateur de pression">
@@ -410,7 +425,6 @@
           </div>
         </a>
 
-        <!-- 11 -->
         <a class="card" href="produit-ensemble-oxygenotherapie.html">
           <div class="imgbox">
             <img src="produits/ensemble-oxygenotherapie.png" alt="Ensemble oxygénothérapie">
@@ -420,11 +434,11 @@
           </div>
         </a>
 
-        <!-- 12 (optionnel : carte vide si tu veux compléter plus tard) -->
-        <a class="card" href="produit-a-ajouter.html" style="visibility:hidden">
+        <!-- carte vide (optionnel) -->
+        <div style="visibility:hidden">
           <div class="imgbox"></div>
           <div class="titlebox"><h3>—</h3></div>
-        </a>
+        </div>
 
       </div>
     </div>
